@@ -618,6 +618,9 @@ class LookupRef
         if (!is_array($arrayValues)) {
             return Functions::REF();
         }
+        if (count($arrayValues) === 1 && is_array($arrayValues[0])) {
+            $arrayValues = current($arrayValues);
+        }
 
         $rowKeys = array_keys($arrayValues);
         $columnKeys = @array_keys($arrayValues[$rowKeys[0]]);
