@@ -611,6 +611,10 @@ class LookupRef
      */
     public static function INDEX($arrayValues, $rowNum = 0, $columnNum = 0)
     {
+        while(is_array($rowNum)) {
+            $rowNum = current($rowNum);
+        }
+
         if (($rowNum < 0) || ($columnNum < 0)) {
             return Functions::VALUE();
         }
